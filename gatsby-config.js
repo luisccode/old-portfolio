@@ -1,0 +1,72 @@
+module.exports = {
+  siteMetadata: {
+    title: `Luis Cortes - Web Developer`,
+    description: `Luisccode Portfolio, Web Developer who specializes in JavaScript technologies.`,
+    author: `@luisccode`,
+    image: `/images/homePage.png`,
+    siteUrl: `https://luisccode.com`,
+  },
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.luisccode.com",
+        sitemap: "https://www.luisccode.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: `http://localhost:1337`,
+        queryLimit: 1000,
+        contentTypes: [
+          "sections",
+          "services",
+          "projects",
+          "testimonials",
+          "articles",
+        ],
+      },
+    },
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Poppins`,
+            variants: [`300`, `400`, `700`],
+          },
+        ],
+        display: "swap",
+      },
+    },
+    //{
+    //resolve: `gatsby-plugin-manifest`,
+    //options: {
+    //name: `gatsby-starter-default`,
+    //short_name: `starter`,
+    //start_url: `/`,
+    //background_color: `#663399`,
+    //theme_color: `#663399`,
+    //display: `minimal-ui`,
+    //icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+    //},
+    //},
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
+  ],
+};
