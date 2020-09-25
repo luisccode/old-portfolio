@@ -1,25 +1,25 @@
-import React from "react"
-import Layaout from "../components/layout"
-import SEO from "../components/SEO"
-import theme from "../theme"
-import { ThemeProvider } from "styled-components"
-import styled from "styled-components"
-import mixins from "../mixins"
-import { Title, Paragraph } from "../components/typography"
-import Button from "../components/button"
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/SEO";
+import theme from "../theme";
+import { ThemeProvider } from "styled-components";
+import styled from "styled-components";
+import mixins from "../mixins";
+import { Title, Paragraph } from "../components/typography";
+import Button from "../components/button";
 
 const NotFoundComponent = styled.div`
   height: calc(100vh - 7rem);
   ${mixins.flexCenter}
-`
+`;
 const ButtonContainer = styled.div`
   ${mixins.flexAround}
-`
+`;
 
 const NotFound = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Layaout>
+      <Layout>
         <SEO title="404 Not Found" />
         <NotFoundComponent>
           <div style={{ maxWidth: "90%" }}>
@@ -35,8 +35,8 @@ const NotFound = () => {
             </ButtonContainer>
           </div>
         </NotFoundComponent>
-      </Layaout>
+      </Layout>
     </ThemeProvider>
-  )
-}
-export default NotFound
+  );
+};
+export default NotFound;

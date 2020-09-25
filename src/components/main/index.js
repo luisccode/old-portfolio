@@ -1,11 +1,11 @@
-import React from "react"
-import { Link } from "gatsby"
-import Presentation from "./presentation"
-import ArrowButton from "./arrowButton"
-import useMain from "../../hooks/useMain"
-import BackgroundImage from "gatsby-background-image"
-import styled from "styled-components"
-import mixins from "../../mixins"
+import React from "react";
+import { Link } from "gatsby";
+import Presentation from "./presentation";
+import ArrowButton from "./arrowButton";
+import useMain from "../../hooks/useMain";
+import BackgroundImage from "gatsby-background-image";
+import styled from "styled-components";
+import mixins from "../../mixins";
 
 const MainContainer = styled(BackgroundImage)`
   width: 90%;
@@ -18,7 +18,7 @@ const MainContainer = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  @media (min-width: ${props => props.theme.size.tablet}) {
+  @media (min-width: ${(props) => props.theme.size.tablet}) {
     padding-top: 0;
     height: calc(100vh - 8.5rem);
     flex-direction: row !important;
@@ -29,19 +29,19 @@ const MainContainer = styled(BackgroundImage)`
       background-size: contain !important;
     }
   }
-`
+`;
 const ArrowContainer = styled.div`
   ${mixins.flexCenter}
-  @media(min-width: ${props => props.theme.size.tablet}){
+  @media(min-width: ${(props) => props.theme.size.tablet}){
     position: absolute;
         top: calc(90% - 3rem);
         left: calc(50% - 3rem);
   }
-`
+`;
 const Main = () => {
-  const { content, image } = useMain()
+  const { content, image } = useMain();
   return (
-    <MainContainer Tag="main" fluid={image.sharp.fluid}>
+    <MainContainer id="home" Tag="main" fluid={image.sharp.fluid}>
       <Presentation content={content} />
       <ArrowContainer>
         <Link to="/#about">
@@ -49,6 +49,6 @@ const Main = () => {
         </Link>
       </ArrowContainer>
     </MainContainer>
-  )
-}
-export default Main
+  );
+};
+export default Main;

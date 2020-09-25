@@ -1,22 +1,23 @@
-import React from "react"
-import { Title, Paragraph } from "../typography"
-import SkillsBar from "./skillsBar"
-import Button from "../button"
-import styled from "styled-components"
-import mixins from "../../mixins"
+import React from "react";
+import { Title, Paragraph } from "../typography";
+import { Link } from "gatsby";
+import SkillsBar from "./skillsBar";
+import Button from "../button";
+import styled from "styled-components";
+import mixins from "../../mixins";
 
 const AboutInfoContainer = styled.div`
   padding: 0 2rem;
-  @media (min-width: ${props => props.theme.size.tablet}) {
+  @media (min-width: ${(props) => props.theme.size.tablet}) {
     flex-basis: calc(45%);
   }
-`
+`;
 const ButtonContainer = styled.div`
   ${mixins.flexAround}
-  @media (min-width: ${props => props.theme.size.tablet}) {
+  @media (min-width: ${(props) => props.theme.size.tablet}) {
     justify-content: flex-start;
   }
-`
+`;
 const AboutInfo = ({ content, skills }) => {
   return (
     <AboutInfoContainer>
@@ -26,20 +27,20 @@ const AboutInfo = ({ content, skills }) => {
       </Paragraph>
       <SkillsBar skills={skills} />
       <ButtonContainer>
-        <Button margin="2rem 2rem 2rem 0" tag="a" href="#contact">
+        <Button margin="2rem 2rem 2rem 0" tag={Link} to="/#contact">
           Hire Me
         </Button>
         <Button
           margin="2rem 2rem 2rem 0"
-          tag="a"
+          tag={Link}
           border="1px solid #fff"
           bgcolor="tranparent"
-          href="#"
+          to="/about"
         >
           About Me
         </Button>
       </ButtonContainer>
     </AboutInfoContainer>
-  )
-}
-export default AboutInfo
+  );
+};
+export default AboutInfo;

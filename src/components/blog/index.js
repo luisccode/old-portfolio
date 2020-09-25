@@ -1,19 +1,20 @@
-import React from "react"
-import Section from "../section"
-import Separator from "../separator"
-import { Title, Paragraph } from "../typography"
-import Article from "./article"
-import Button from "../button"
-import useBlog from "../../hooks/useBlog"
-import styled from "styled-components"
-import mixins from "../../mixins"
+import React from "react";
+import Section from "../section";
+import Separator from "../separator";
+import { Title, Paragraph } from "../typography";
+import Article from "./article";
+import Button from "../button";
+import { Link } from "gatsby";
+import useBlog from "../../hooks/useBlog";
+import styled from "styled-components";
+import mixins from "../../mixins";
 
 const ArticlesContainer = styled.div`
   ${mixins.flexAround}
   flex-wrap: wrap;
-`
+`;
 const Blog = () => {
-  const data = useBlog()
+  const data = useBlog();
   return (
     <Section id="blog">
       <Separator />
@@ -24,12 +25,14 @@ const Blog = () => {
         impedit hic non omnis.
       </Paragraph>
       <ArticlesContainer>
-        {data.map(articleData => (
+        {data.map((articleData) => (
           <Article data={articleData} key={articleData.id} />
         ))}
       </ArticlesContainer>
-      <Button margin="2rem auto">View All</Button>
+      <Button margin="2rem auto" tag={Link} to="/blog">
+        View All
+      </Button>
     </Section>
-  )
-}
-export default Blog
+  );
+};
+export default Blog;
