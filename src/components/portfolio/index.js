@@ -17,13 +17,10 @@ const ProjectContainer = styled.div`
     margin: 4rem 0;
   }
 `;
-const Portfolio = () => {
-  const data = usePortfolio();
-  const {
-    allStrapiProjects: { nodes },
-  } = data;
+const Portfolio = ({ getAllProjects = false, hide = false }) => {
+  const nodes = usePortfolio(getAllProjects);
   return (
-    <Section id="portfolio">
+    <Section id="portfolio" hideSeparator={hide}>
       <Separator />
       <Title tag="h3">My Portfolio</Title>
       <Paragraph margin="1.5rem 0">
@@ -35,9 +32,11 @@ const Portfolio = () => {
           <Project data={project} key={project.name} />
         ))}
       </ProjectContainer>
-      <Button margin="0 auto" tag={Link} to="/portfolio">
-        View All
-      </Button>
+      {!hide && (
+        <Button margin="0 auto" tag={Link} to="/portfolio">
+          View All
+        </Button>
+      )}
     </Section>
   );
 };

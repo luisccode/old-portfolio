@@ -34,14 +34,7 @@ a {
 p {
     line-height: 2;
 }
-.separator {
-    display: none;
-}
-@media (min-width: 768px) {
-    .separator {
-        display: inline;
-    }
-}
+
 .fade-enter {
   opacity: 0;
   transform: scale(0.9) translateY(100%);

@@ -7,6 +7,7 @@ import styled from "styled-components";
 import mixins from "../mixins";
 import { Title, Paragraph } from "../components/typography";
 import Button from "../components/button";
+import { Link } from "gatsby";
 
 const NotFoundComponent = styled.div`
   height: calc(100vh - 7rem);
@@ -26,10 +27,10 @@ const NotFound = () => {
             <Title textAlign="center">Oops, something's gone wrong!</Title>
             <Paragraph>Don't worry, you can try one of these links:</Paragraph>
             <ButtonContainer>
-              <Button tag="a" href="/" margin="2rem 0">
-                Portfolio
+              <Button tag={Link} to="/" margin="2rem 0">
+                Home
               </Button>
-              <Button tag="a" href="/#blog" margin="2rem 0">
+              <Button tag={Link} to="/blog" margin="2rem 0">
                 Blog
               </Button>
             </ButtonContainer>

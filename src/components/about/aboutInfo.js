@@ -27,7 +27,7 @@ const AboutInfo = ({ content, skills }) => {
       </Paragraph>
       <SkillsBar skills={skills} />
       <ButtonContainer>
-        <Button margin="2rem 2rem 2rem 0" tag={Link} to="/#contact">
+        <Button margin="2rem 2rem 2rem 0" tag={Link} to="/contact">
           Hire Me
         </Button>
         <Button

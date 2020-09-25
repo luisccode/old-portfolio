@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Button from "../button";
+import { useLocation } from "@reach/router";
 
 const NavComponent = styled.nav`
   z-index: 2;
@@ -75,6 +76,8 @@ const ButtonComponent = styled(Button)`
 `;
 const linksInfo = ["About Me", "Services", "Portfolio", "Blog", "Contact Me"];
 const Navigation = ({ open, setOpen }) => {
+  const { pathname } = useLocation();
+  const route = pathname == "/" ? "/#" : "/";
   const getFirstWordLowerCase = (word) => word.split(" ")[0].toLowerCase();
   return (
     <NavComponent className={open ? "show" : ""}>
@@ -83,7 +86,7 @@ const Navigation = ({ open, setOpen }) => {
       </LinkComponent>
       {linksInfo.map((info) => (
         <LinkComponent
-          to={"/#" + getFirstWordLowerCase(info)}
+          to={route + getFirstWordLowerCase(info)}
           key={info}
           onClick={() => setOpen(false)}
         >
@@ -92,7 +95,7 @@ const Navigation = ({ open, setOpen }) => {
       ))}
       <ButtonContainer>
         <ButtonComponent
-          to="/#contact"
+          to="/contact"
           tag={Link}
           onClick={() => setOpen(false)}
         >

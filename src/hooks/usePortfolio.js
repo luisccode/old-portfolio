@@ -1,15 +1,16 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
 
-const usePortfolio = () => {
+const usePortfolio = (getAllProjects) => {
   const data = useStaticQuery(graphql`
     {
-      allStrapiProjects(filter: { featured: { eq: true } }) {
+      allStrapiProjects {
         nodes {
           name
           technologies
           description
           url
           demo
+          featured
           image {
             sharp: childImageSharp {
               fluid(maxWidth: 400, quality: 90) {
@@ -20,8 +21,13 @@ const usePortfolio = () => {
         }
       }
     }
-  `)
-  return data
-}
+  `);
+  const {
+    allStrapiProjects: { nodes },
+  } = data;
+  return getAllProjects
+    ? nodes
+    : nodes.filter((project) => project.featured === true);
+};
 
-export default usePortfolio
+export default usePortfolio;

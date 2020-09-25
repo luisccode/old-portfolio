@@ -1,27 +1,35 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
 
-const useServices = () => {
+const useServices = (getAllServices) => {
   const data = useStaticQuery(graphql`
     {
       allStrapiSections(filter: { name: { eq: "services" } }) {
         nodes {
           content
-          image {
-            publicURL
-          }
         }
       }
       allStrapiServices {
         nodes {
           name
+          featured
           icon {
             publicURL
           }
         }
       }
     }
-  `)
-  return data
-}
+  `);
+  const {
+    allStrapiSections: { nodes },
+    allStrapiServices,
+  } = data;
+  const services = allStrapiServices.nodes.filter(
+    (service) => service.featured === true
+  );
+  return {
+    sectionData: nodes[0],
+    services: services,
+  };
+};
 
-export default useServices
+export default useServices;

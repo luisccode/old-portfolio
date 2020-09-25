@@ -1,9 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styled, { css } from "styled-components"
+import React from "react";
+import PropTypes from "prop-types";
+import styled, { css } from "styled-components";
 
-const SectionComponent = styled.div`
-  ${props =>
+const SectionComponent = styled.section`
+  ${(props) =>
     props.center
       ? css`
           width: 90%;
@@ -13,26 +13,39 @@ const SectionComponent = styled.div`
       : ``}
   padding-top: 2rem;
   margin-top: 2rem;
-  &:not(:first-of-type) {
-    text-align: center;
-  }
-  @media (min-width: ${props => props.theme.size.tablet}) {
+  text-align: ${(props) => props.textAlign};
+  @media (min-width: ${(props) => props.theme.size.tablet}) {
     padding-top: 0;
     margin-top: 6rem;
   }
-`
-const Section = props => {
+  .separator {
+    display: none;
+  }
+  ${(props) =>
+    !props.hideSeparator
+      ? css`
+          @media (min-width: 768px) {
+            .separator {
+              display: inline;
+            }
+          }
+        `
+      : ``}
+`;
+const Section = (props) => {
   return (
     <SectionComponent {...props} tag="section">
       {props.children}
     </SectionComponent>
-  )
-}
-export default Section
+  );
+};
+export default Section;
 
 Section.propTypes = {
   center: PropTypes.bool,
-}
+  textAlign: PropTypes.string,
+};
 Section.defaultProps = {
   center: true,
-}
+  textAlign: "center",
+};
