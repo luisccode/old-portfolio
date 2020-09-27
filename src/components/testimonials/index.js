@@ -1,27 +1,27 @@
-import React, { useRef } from "react"
-import Section from "../section"
-import Container from "../container"
-import { Title, Paragraph } from "../typography"
-import Separator from "../separator"
-import Testimonial from "./testimonial"
-import useTestimonial from "../../hooks/useTestimonial"
-import styled from "styled-components"
+import React, { useRef } from "react";
+import Section from "../section";
+import Container from "../container";
+import { Title, Paragraph } from "../typography";
+import Separator from "../separator";
+import Testimonial from "./testimonial";
+import useTestimonial from "../../hooks/useTestimonial";
+import styled from "styled-components";
 
 const SectionComponent = styled(Section)`
   overflow: hidden;
   padding-bottom: 4rem;
-`
+`;
 const TestimonialsContainer = styled.div`
   position: relative;
   max-width: 80%;
   height: 30rem;
   margin: 0 auto;
   margin-top: 12rem;
-  @media (min-width: ${props => props.theme.size.tablet}) {
+  @media (min-width: ${(props) => props.theme.size.tablet}) {
     height: 37.8rem;
     max-width: 86.5rem;
   }
-`
+`;
 const Slides = styled.div`
   width: 300%;
   height: 100%;
@@ -39,13 +39,13 @@ const Slides = styled.div`
   #r3:checked ~ .s0 {
     margin-left: -66.66%;
   }
-`
+`;
 const Navigation = styled.div`
   display: flex;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 50%);
-`
+`;
 const Bar = styled.label`
   width: 5rem;
   height: 1.2rem;
@@ -57,20 +57,20 @@ const Bar = styled.label`
   &.orange {
     background: #ff4900;
   }
-`
+`;
 const Testimonials = () => {
-  const data = useTestimonial()
-  const bar1 = useRef(null)
-  const bar2 = useRef(null)
-  const bar3 = useRef(null)
-  const handleClick = e => {
-    bar1.current.classList.remove("orange")
-    bar2.current.classList.remove("orange")
-    bar3.current.classList.remove("orange")
-    e.target.classList.add("orange")
-  }
+  const data = useTestimonial();
+  const bar1 = useRef(null);
+  const bar2 = useRef(null);
+  const bar3 = useRef(null);
+  const handleClick = (e) => {
+    bar1.current.classList.remove("orange");
+    bar2.current.classList.remove("orange");
+    bar3.current.classList.remove("orange");
+    e.target.classList.add("orange");
+  };
   return (
-    <SectionComponent id="testimonials" center={false} tag="section">
+    <SectionComponent id="testimonials" center={false}>
       <Container>
         <Separator />
         <Title tag="h4">Testimonials</Title>
@@ -105,6 +105,6 @@ const Testimonials = () => {
         </Navigation>
       </TestimonialsContainer>
     </SectionComponent>
-  )
-}
-export default Testimonials
+  );
+};
+export default Testimonials;

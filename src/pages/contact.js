@@ -1,14 +1,18 @@
 import React from "react";
+import Layout from "../components/layout";
 import SEO from "../components/SEO";
-import Page from "../HOCS/page";
+import theme from "../theme";
+import { ThemeProvider } from "styled-components";
 import Contact from "../components/contact";
 
 const AboutPage = () => {
   return (
-    <Page>
-      <SEO title="About Me" />
-      <Contact />
-    </Page>
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <SEO title="Contact Me" />
+        <Contact />
+      </Layout>
+    </ThemeProvider>
   );
 };
 export default AboutPage;

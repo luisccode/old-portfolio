@@ -18,7 +18,7 @@ const ButtonContainer = styled.div`
     justify-content: flex-start;
   }
 `;
-const AboutInfo = ({ content, skills }) => {
+const AboutInfo = ({ content, skills, hide = false }) => {
   return (
     <AboutInfoContainer>
       <Title tag="h3">About Me</Title>
@@ -30,15 +30,17 @@ const AboutInfo = ({ content, skills }) => {
         <Button margin="2rem 2rem 2rem 0" tag={Link} to="/contact">
           Hire Me
         </Button>
-        <Button
-          margin="2rem 2rem 2rem 0"
-          tag={Link}
-          border="1px solid #fff"
-          bgcolor="tranparent"
-          to="/about"
-        >
-          About Me
-        </Button>
+        {!hide && (
+          <Button
+            margin="2rem 2rem 2rem 0"
+            tag={Link}
+            border="1px solid #fff"
+            bgcolor="tranparent"
+            to="/about"
+          >
+            About Me
+          </Button>
+        )}
       </ButtonContainer>
     </AboutInfoContainer>
   );

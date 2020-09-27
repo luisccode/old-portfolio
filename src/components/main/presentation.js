@@ -1,22 +1,22 @@
-import React from "react"
-import Signboard from "./signboard"
-import { Title } from "../typography"
-import Button from "../button"
-import styled from "styled-components"
-import mixins from "../../mixins"
+import React from "react";
+import Signboard from "./signboard";
+import { Title } from "../typography";
+import Button from "../button";
+import styled from "styled-components";
+import mixins from "../../mixins";
 
 const PresentationContainer = styled.div`
   margin-top: 50%;
-  @media (min-width: ${props => props.theme.size.tablet}) {
+  @media (min-width: ${(props) => props.theme.size.tablet}) {
     margin-top: 0;
   }
-`
+`;
 const ButtonContainer = styled.div`
   ${mixins.flexEvenly}
-  @media(min-width: ${props => props.theme.size.tablet}){
+  @media(min-width: ${(props) => props.theme.size.tablet}){
     ${mixins.flexBetween}
   }
-`
+`;
 
 const Presentation = ({ content }) => {
   return (
@@ -40,7 +40,7 @@ const Presentation = ({ content }) => {
       <ButtonContainer>
         <Button
           tag="a"
-          href="https://luisccode.com/Luis Cortes CV.pdf"
+          href="/Luis Cortes CV.pdf"
           target="_blank"
           margin="2rem 0"
         >
@@ -57,6 +57,6 @@ const Presentation = ({ content }) => {
         </Button>
       </ButtonContainer>
     </PresentationContainer>
-  )
-}
-export default Presentation
+  );
+};
+export default Presentation;

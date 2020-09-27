@@ -25,7 +25,7 @@ const ImagenComponent = styled(Img)`
   filter: grayscale(0.8);
   ${mixins.borderDefault}
 `;
-const About = () => {
+const About = ({ hide }) => {
   const data = useAbout();
   const {
     content,
@@ -39,7 +39,7 @@ const About = () => {
       <ImageContainer>
         <ImagenComponent fluid={fluid} alt="About Me Image" />
       </ImageContainer>
-      <AboutInfo content={content} skills={jsonData} />
+      <AboutInfo content={content} skills={jsonData} hide={hide} />
     </SectionComponent>
   );
 };

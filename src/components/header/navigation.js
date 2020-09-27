@@ -77,7 +77,7 @@ const ButtonComponent = styled(Button)`
 const linksInfo = ["About Me", "Services", "Portfolio", "Blog", "Contact Me"];
 const Navigation = ({ open, setOpen }) => {
   const { pathname } = useLocation();
-  const route = pathname == "/" ? "/#" : "/";
+  const route = pathname === "/" ? "/#" : "/";
   const getFirstWordLowerCase = (word) => word.split(" ")[0].toLowerCase();
   return (
     <NavComponent className={open ? "show" : ""}>

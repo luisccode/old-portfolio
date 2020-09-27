@@ -14,12 +14,12 @@ const ArticleComponent = styled.article`
   margin: 1.5rem 0;
   @media (min-width: ${(props) => props.theme.size.tablet}) {
     flex-basis: calc(33.3% - 5rem);
-    margin: 6.5rem 0;
+    margin: 4.5rem 0;
   }
 `;
 const BackgroundImageComponent = styled(BackgroundImage)`
   height: 50%;
-  background-position: top;
+  background-position: center;
   background-size: cover;
 `;
 const Content = styled.div`

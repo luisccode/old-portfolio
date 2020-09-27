@@ -1,6 +1,6 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
 
-const useBlog = () => {
+const useBlog = (getAllArticles = false) => {
   const data = useStaticQuery(graphql`
     {
       allStrapiArticles {
@@ -9,6 +9,7 @@ const useBlog = () => {
           date
           id
           url
+          featured
           image {
             sharp: childImageSharp {
               fluid(maxWidth: 400) {
@@ -19,11 +20,13 @@ const useBlog = () => {
         }
       }
     }
-  `)
+  `);
   const {
     allStrapiArticles: { nodes },
-  } = data
-  return nodes
-}
+  } = data;
+  return getAllArticles
+    ? nodes
+    : nodes.filter((article) => article.featured === true);
+};
 
-export default useBlog
+export default useBlog;

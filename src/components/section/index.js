@@ -33,11 +33,7 @@ const SectionComponent = styled.section`
       : ``}
 `;
 const Section = (props) => {
-  return (
-    <SectionComponent {...props} tag="section">
-      {props.children}
-    </SectionComponent>
-  );
+  return <SectionComponent {...props}>{props.children}</SectionComponent>;
 };
 export default Section;
 

@@ -19,10 +19,10 @@ const Blog = () => {
     <Section id="blog">
       <Separator />
       <Title>Latest Blog</Title>
-      <Paragraph margin="1.35rem 0">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-        repellendus exercitationem, recusandae ab corrupti cupiditate voluptatum
-        impedit hic non omnis.
+      <Paragraph margin="1.35rem 0" fontSize="1.5rem">
+        Check out <Link to="/blog">my blog</Link> where I share articles,
+        tutorials and snippets about react, gatsby, javascript, freelancing, and
+        programming. Let me know what you think in the comments section.
       </Paragraph>
       <ArticlesContainer>
         {data.map((articleData) => (
