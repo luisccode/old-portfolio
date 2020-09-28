@@ -1,9 +1,9 @@
-import React from "react"
-import { Title, Paragraph } from "../typography"
-import Arrow from "../arrow"
-import mixins from "../../mixins"
-import styled from "styled-components"
-import BackgroundImage from "gatsby-background-image"
+import React from "react";
+import { Title, Paragraph } from "../typography";
+import Arrow from "../arrow";
+import mixins from "../../mixins";
+import styled from "styled-components";
+import BackgroundImage from "gatsby-background-image";
 
 const ProjectContent = styled.div`
   position: absolute;
@@ -24,7 +24,7 @@ const ProjectContent = styled.div`
       margin: 0 2rem;
     }
   }
-`
+`;
 const ProjectComponent = styled(BackgroundImage)`
   border-radius: 0.4rem;
   flex-basis: 90%;
@@ -39,14 +39,14 @@ const ProjectComponent = styled(BackgroundImage)`
     flex-basis: calc(50% - 4rem);
     height: 35rem;
   }
-  @media (min-width: ${props => props.theme.size.laptopS}) {
+  @media (min-width: ${(props) => props.theme.size.laptopS}) {
     flex-basis: calc(33.3% - 6rem);
     height: 35rem;
   }
   &:hover ${ProjectContent} {
     transform: translatey(0);
   }
-`
+`;
 
 const Link = styled.a`
   ${mixins.flexCenter}
@@ -56,9 +56,9 @@ const Link = styled.a`
     font-weight: 400;
     margin-right: 0.5rem;
   }
-`
+`;
 const Project = ({
-  data: { name, technologies, description, url, demo, image },
+  data: { name, technologies, description, githubUrl, demoUrl, image },
 }) => {
   return (
     <ProjectComponent tag="section" fluid={image.sharp.fluid}>
@@ -76,7 +76,7 @@ const Project = ({
           <Paragraph lineHeight={1.5} margin="0 0 1.3rem 0">
             {description}
           </Paragraph>
-          <Link href={url} target="_blank">
+          <Link href={githubUrl} target="_blank">
             <span>View on GitHub</span>
             <Arrow
               color="#fff"
@@ -86,7 +86,7 @@ const Project = ({
               hideOnSmall={false}
             />
           </Link>
-          <Link href={demo} target="_blank">
+          <Link href={demoUrl} target="_blank">
             <span>Demo</span>
             <Arrow
               color="#fff"
@@ -99,7 +99,7 @@ const Project = ({
         </div>
       </ProjectContent>
     </ProjectComponent>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

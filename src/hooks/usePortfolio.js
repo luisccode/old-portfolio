@@ -8,8 +8,8 @@ const usePortfolio = (getAllProjects) => {
           name
           technologies
           description
-          url
-          demo
+          githubUrl
+          demoUrl
           featured
           image {
             sharp: childImageSharp {

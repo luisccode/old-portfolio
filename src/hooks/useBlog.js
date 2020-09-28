@@ -6,9 +6,8 @@ const useBlog = (getAllArticles = false) => {
       allStrapiArticles {
         nodes {
           title
-          date
+          publishedAt(formatString: "DD MMMM, YYYY")
           id
-          url
           featured
           image {
             sharp: childImageSharp {
