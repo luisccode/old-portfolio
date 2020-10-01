@@ -5,7 +5,7 @@ import theme from "../theme";
 import { ThemeProvider } from "styled-components";
 import Section from "../components/section";
 import { Title, Paragraph } from "../components/typography";
-import Article from "../components/blog/article";
+import ArticleCard from "../components/blog/articleCard";
 import styled from "styled-components";
 import useBlog from "../hooks/useBlog";
 import mixins from "../mixins";
@@ -29,7 +29,7 @@ const BlogPage = () => {
           </Paragraph>
           <ArticlesContainer>
             {data.map((articleData) => (
-              <Article data={articleData} key={articleData.id} />
+              <ArticleCard data={articleData} key={articleData.id} />
             ))}
           </ArticlesContainer>
         </Section>

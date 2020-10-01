@@ -1,7 +1,7 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const response = await graphql(`
     query {
-      allStrapiArticles {
+      allStrapiArticles(filter: { status: { eq: "published" } }) {
         nodes {
           slug
         }

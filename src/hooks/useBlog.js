@@ -3,7 +3,10 @@ import { useStaticQuery, graphql } from "gatsby";
 const useBlog = (getAllArticles = false) => {
   const data = useStaticQuery(graphql`
     {
-      allStrapiArticles {
+      allStrapiArticles(
+        sort: { fields: publishedAt, order: DESC }
+        filter: { status: { eq: "published" } }
+      ) {
         nodes {
           title
           publishedAt(formatString: "DD MMMM, YYYY")

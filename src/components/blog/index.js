@@ -2,7 +2,7 @@ import React from "react";
 import Section from "../section";
 import Separator from "../separator";
 import { Title, Paragraph } from "../typography";
-import Article from "./article";
+import ArticleCard from "./articleCard";
 import Button from "../button";
 import { Link } from "gatsby";
 import useBlog from "../../hooks/useBlog";
@@ -26,7 +26,7 @@ const Blog = () => {
       </Paragraph>
       <ArticlesContainer>
         {data.map((articleData) => (
-          <Article data={articleData} key={articleData.id} />
+          <ArticleCard data={articleData} key={articleData.id} />
         ))}
       </ArticlesContainer>
       <Button margin="2rem auto" tag={Link} to="/blog">

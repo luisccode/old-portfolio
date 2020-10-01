@@ -31,7 +31,7 @@ const LinkComponent = styled(Link)`
   display: flex;
   align-items: center;
 `;
-const Article = ({ data: { publishedAt, title, slug, image } }) => {
+const ArticleCard = ({ data: { publishedAt, title, slug, image } }) => {
   return (
     <ArticleComponent>
       <BackgroundImageComponent
@@ -65,4 +65,4 @@ const Article = ({ data: { publishedAt, title, slug, image } }) => {
     </ArticleComponent>
   );
 };
-export default Article;
+export default ArticleCard;
