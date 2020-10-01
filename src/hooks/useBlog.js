@@ -9,6 +9,7 @@ const useBlog = (getAllArticles = false) => {
           publishedAt(formatString: "DD MMMM, YYYY")
           id
           featured
+          slug
           image {
             sharp: childImageSharp {
               fluid(maxWidth: 400) {

@@ -31,7 +31,7 @@ const LinkComponent = styled(Link)`
   display: flex;
   align-items: center;
 `;
-const Article = ({ data: { publishedAt, title, image } }) => {
+const Article = ({ data: { publishedAt, title, slug, image } }) => {
   return (
     <ArticleComponent>
       <BackgroundImageComponent
@@ -41,7 +41,7 @@ const Article = ({ data: { publishedAt, title, image } }) => {
         <Paragraph margin="1.35rem 0" textAlign="left">
           {publishedAt}
         </Paragraph>
-        <Link to={`/`}>
+        <Link to={`/blog/${slug}`}>
           <Title
             fontSize={{ static: "1.65rem" }}
             margin="2.2rem 0"
@@ -51,7 +51,7 @@ const Article = ({ data: { publishedAt, title, image } }) => {
             {title}
           </Title>
         </Link>
-        <LinkComponent to={`/`}>
+        <LinkComponent to={`/blog/${slug}`}>
           <Paragraph
             fontSize="1.3rem"
             margin="0 1rem 0 0"

@@ -53,6 +53,7 @@ module.exports = {
         display: "swap",
       },
     },
+    `gatsby-plugin-mdx`,
     //{
     //resolve: `gatsby-plugin-manifest`,
     //options: {
