@@ -69,3 +69,5 @@ yarn-error.log
 .yarn-integrity
 #statickit
 statickit.json
+
+package-lock.json

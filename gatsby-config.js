@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env`,
+});
 module.exports = {
   siteMetadata: {
     title: `Luis Cortes - Web Developer`,
@@ -29,7 +32,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: process.env.API_URL || "http://localhost:1337",
         queryLimit: 1000,
         contentTypes: [
           "sections",
