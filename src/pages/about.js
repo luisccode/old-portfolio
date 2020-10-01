@@ -11,7 +11,11 @@ const AboutPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <SEO title="About Me" />
+        <SEO
+          title="About Me"
+          description="Luisccode about me page"
+          keywords={["About Luisccode", "Web Developer"]}
+        />
         <About hide={true} />
         <Section>
           <Title tag="h3">Education</Title>

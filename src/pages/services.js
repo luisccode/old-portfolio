@@ -9,7 +9,7 @@ const ServicesPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <SEO title="About Me" />
+        <SEO title="My services" description="Luisccode Services" />
         <Services getAllServices={true} hide={true} />
       </Layout>
     </ThemeProvider>

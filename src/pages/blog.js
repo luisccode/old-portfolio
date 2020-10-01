@@ -19,7 +19,16 @@ const BlogPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <SEO title="Blog" />
+        <SEO
+          title="My Blog"
+          description="Luisccode Blog"
+          keywords={[
+            "Blog",
+            "Programming Articles",
+            "Code Snippets",
+            "Tutorials",
+          ]}
+        />
         <Section>
           <Title>My Blog</Title>
           <Paragraph margin="1.35rem 0" fontSize="1.5rem">

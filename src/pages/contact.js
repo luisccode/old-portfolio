@@ -9,7 +9,7 @@ const AboutPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <SEO title="Contact Me" />
+        <SEO title="Contact Me" description="Luisccode contact page" />
         <Contact />
       </Layout>
     </ThemeProvider>

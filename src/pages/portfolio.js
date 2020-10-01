@@ -9,7 +9,11 @@ const PortfolioPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <SEO title="Portfolio" />
+        <SEO
+          title="Portfolio"
+          description="Some of my featured projects with demo and github links"
+          keywords={["Portfolio", "Projects"]}
+        />
         <Portfolio getAllProjects={true} hide={true} />
       </Layout>
     </ThemeProvider>

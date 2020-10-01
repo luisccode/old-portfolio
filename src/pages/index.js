@@ -14,21 +14,19 @@ import { ThemeProvider } from "styled-components";
 
 const Index = () => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <SEO />
-          <Main />
-          <About />
-          <Services />
-          <Counter />
-          <Portfolio />
-          <Banner />
-          <Blog />
-          <Contact />
-        </Layout>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <SEO />
+        <Main />
+        <About />
+        <Services />
+        <Counter />
+        <Portfolio />
+        <Banner />
+        <Blog />
+        <Contact />
+      </Layout>
+    </ThemeProvider>
   );
 };
 export default Index;
