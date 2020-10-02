@@ -1,19 +1,27 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import useSEO from "../../hooks/useSEO"
+import React from "react";
+import { Helmet } from "react-helmet";
+import useSEO from "../../hooks/useSEO";
 
-const SEO = ({ description, keywords, title, image, url, author }) => {
-  const siteMetadata = useSEO()
-  const metaDescription = description || siteMetadata.description
-  const metaTitle = title || siteMetadata.title
-  const metaAuthor = author || siteMetadata.author
-  const metaUrl = url || siteMetadata.siteUrl
-  const metaImage = `${metaUrl}${image || siteMetadata.image}`
+const SEO = ({
+  description,
+  keywords,
+  title,
+  image,
+  url,
+  author,
+  customScript,
+}) => {
+  const siteMetadata = useSEO();
+  const metaDescription = description || siteMetadata.description;
+  const metaTitle = title || siteMetadata.title;
+  const metaAuthor = author || siteMetadata.author;
+  const metaUrl = url || siteMetadata.siteUrl;
+  const metaImage = `${metaUrl}${image || siteMetadata.image}`;
   const metaKeywords = keywords || [
     "Luis Cortes Portfolio",
     "luisccode",
     "Web Developer",
-  ]
+  ];
   return (
     <Helmet
       htmlAttributes={{
@@ -74,7 +82,9 @@ const SEO = ({ description, keywords, title, image, url, author }) => {
           ? { name: `keywords`, content: metaKeywords.join(`, `) }
           : []
       )}
-    />
-  )
-}
-export default SEO
+    >
+      {customScript && <script async src={`${customScript.url}`} />}
+    </Helmet>
+  );
+};
+export default SEO;

@@ -11,7 +11,14 @@ import styled from "styled-components";
 
 const ProjectContainer = styled.div`
   margin: 2rem 0;
-  ${mixins.flexEvenly}
+  ${mixins.flexCenter}
+  @media (min-width: 500px) {
+    justify-content: space-between;
+    &::after {
+      content: "";
+      flex-basis: calc(33.3% - 6rem);
+    }
+  }
   flex-wrap: wrap;
   @media (min-width: ${(props) => props.theme.size.tablet}) {
     margin: 4rem 0;

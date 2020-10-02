@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 const usePortfolio = (getAllProjects) => {
   const data = useStaticQuery(graphql`
     {
-      allStrapiProjects {
+      allStrapiProjects(sort: { fields: id, order: ASC }) {
         nodes {
           name
           technologies

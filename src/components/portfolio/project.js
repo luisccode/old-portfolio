@@ -38,6 +38,9 @@ const ProjectComponent = styled(BackgroundImage)`
   @media (min-width: 500px) {
     flex-basis: calc(50% - 4rem);
     height: 35rem;
+    &:last-of-type {
+      margin-bottom: 4rem;
+    }
   }
   @media (min-width: ${(props) => props.theme.size.laptopS}) {
     flex-basis: calc(33.3% - 6rem);

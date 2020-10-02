@@ -4,47 +4,38 @@ import { graphql } from "gatsby";
 import Layout from "../layout";
 import SEO from "../SEO";
 import { Title, Paragraph } from "../typography";
-import BackgroundImage from "gatsby-background-image";
-import Container from "../container";
+import {
+  ImagenComponent,
+  BackgroundImageComponent,
+  InfoContainer,
+  Link,
+  ContainerComponent,
+  UlComponent,
+} from "./styles";
 import theme from "../../theme";
 import { ThemeProvider } from "styled-components";
 import { MDXProvider } from "@mdx-js/react";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
-import styled from "styled-components";
 
 const components = {
-  h1: (props) => <Title {...props} margin="1rem 0" />,
+  h1: (props) => <Title {...props} />,
   h2: (props) => <Title {...props} margin="1rem 0" tag="h2" />,
   h3: (props) => <Title {...props} margin="1rem 0" tag="h3" />,
   h4: (props) => <Title {...props} margin="1rem 0" tag="h4" />,
-  p: (props) => <Paragraph {...props} textAlign="left" lineHeight={1.7} />,
+  img: (props) => <ImagenComponent {...props} />,
+  p: (props) => (
+    <Paragraph
+      {...props}
+      fontSize="1.6rem"
+      textAlign="left"
+      margin="1rem 0"
+      lineHeight={1.7}
+    />
+  ),
+  a: (props) => <Link {...props} />,
+  ul: (props) => <UlComponent {...props} />,
 };
-const BackgroundImageComponent = styled(BackgroundImage)`
-  height: 20rem;
-  margin-bottom:2rem;
-  @media (min-width: ${(props) => props.theme.size.tablet}) {
-    height: 30rem;
-    margin:1rem 0;
-  }
-  border-radius: 0.35rem;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  &::before,
-  &::after {
-   filter: opacity(0.35); !important
-  }
-`;
-const InfoContainer = styled.div`
-  width: 80%;
-  @media (min-width: ${(props) => props.theme.size.tablet}) {
-    p {
-      font-size: 1.8rem;
-    }
-  }
-`;
+
 const Article = ({ data }) => {
   const {
     title,
@@ -55,13 +46,6 @@ const Article = ({ data }) => {
     publishedAt,
     image,
   } = data.strapiArticles;
-  React.useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/prism.min.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
   return (
     <ThemeProvider theme={theme}>
       <Layout>
@@ -69,7 +53,11 @@ const Article = ({ data }) => {
           title={metaTitle}
           description={metaDescription}
           keywords={keywords}
-          // add and metaImage
+          image={image.publicURL}
+          customScript={{
+            url:
+              "https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/prism.min.js",
+          }}
         />
         <BackgroundImageComponent fluid={image.sharp.fluid}>
           <InfoContainer>
@@ -88,11 +76,11 @@ const Article = ({ data }) => {
             </Paragraph>
           </InfoContainer>
         </BackgroundImageComponent>
-        <Container>
+        <ContainerComponent tag="section">
           <MDXProvider components={components}>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
-        </Container>
+        </ContainerComponent>
       </Layout>
     </ThemeProvider>
   );
@@ -115,6 +103,7 @@ export const query = graphql`
       }
       publishedAt(formatString: "DD MMMM, YYYY")
       image {
+        publicURL
         sharp: childImageSharp {
           fluid(maxWidth: 1200) {
             ...GatsbyImageSharpFluid_withWebp

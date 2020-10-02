@@ -10,7 +10,7 @@ code[class*="language-"],
 pre[class*="language-"] {
   color: #ccc;
   max-width: 850px;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   background: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 1em;
@@ -34,7 +34,7 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
   padding: 1em;
-  margin: 0.5em 0;
+  margin: 2rem 0;
   overflow: auto;
 }
 
