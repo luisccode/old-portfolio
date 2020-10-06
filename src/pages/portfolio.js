@@ -14,7 +14,7 @@ const PortfolioPage = () => {
           description="Some of my featured projects with demo and github links"
           keywords={["Portfolio", "Projects"]}
         />
-        <Portfolio getAllProjects={true} hide={true} />
+        <Portfolio getAllProjects={true} isInternalPage={true} />
       </Layout>
     </ThemeProvider>
   );

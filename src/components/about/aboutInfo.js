@@ -18,7 +18,7 @@ const ButtonContainer = styled.div`
     justify-content: flex-start;
   }
 `;
-const AboutInfo = ({ content, skills, hide = false }) => {
+const AboutInfo = ({ content, skills, isInternalPage }) => {
   return (
     <AboutInfoContainer>
       <Title tag="h3">About Me</Title>
@@ -30,7 +30,7 @@ const AboutInfo = ({ content, skills, hide = false }) => {
         <Button margin="2rem 2rem 2rem 0" tag={Link} to="/contact">
           Hire Me
         </Button>
-        {!hide && (
+        {!isInternalPage && (
           <Button
             margin="2rem 2rem 2rem 0"
             tag={Link}

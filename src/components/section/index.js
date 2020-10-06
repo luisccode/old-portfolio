@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 const SectionComponent = styled.section`
+  width: 90%;
+  max-width: 120rem;
+  margin: 0 auto;
   ${(props) =>
-    props.center
+    !props.isInternalPage
       ? css`
-          width: 90%;
-          max-width: 120rem;
-          margin: 0 auto;
+          padding-top: 2rem;
+          margin-top: 2rem;
         `
       : ``}
-  padding-top: 2rem;
-  margin-top: 2rem;
   text-align: ${(props) => props.textAlign};
   @media (min-width: ${(props) => props.theme.size.tablet}) {
     padding-top: 0;
@@ -22,7 +22,7 @@ const SectionComponent = styled.section`
     display: none;
   }
   ${(props) =>
-    !props.hideSeparator
+    !props.isInternalPage
       ? css`
           @media (min-width: 768px) {
             .separator {
@@ -38,10 +38,10 @@ const Section = (props) => {
 export default Section;
 
 Section.propTypes = {
-  center: PropTypes.bool,
   textAlign: PropTypes.string,
+  isInternalPage: PropTypes.bool,
 };
 Section.defaultProps = {
-  center: true,
   textAlign: "center",
+  isInternalPage: false,
 };

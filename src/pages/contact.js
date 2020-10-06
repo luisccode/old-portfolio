@@ -10,7 +10,7 @@ const AboutPage = () => {
     <ThemeProvider theme={theme}>
       <Layout>
         <SEO title="Contact Me" description="Luisccode contact page" />
-        <Contact />
+        <Contact isInternalPage={true} />
       </Layout>
     </ThemeProvider>
   );

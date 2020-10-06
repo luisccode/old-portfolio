@@ -16,7 +16,7 @@ const AboutPage = () => {
           description="Luisccode about me page"
           keywords={["About Luisccode", "Web Developer"]}
         />
-        <About hide={true} />
+        <About hide={true} isInternalPage={true} />
         <Section>
           <Title tag="h3">Education</Title>
           <Paragraph

@@ -28,7 +28,7 @@ const Banner = () => {
   const data = useBanner();
   const { content, image } = data;
   return (
-    <BackgroundImageComponent fluid={image.sharp.fluid}>
+    <BackgroundImageComponent fluid={image.sharp.fluid} Tag="section">
       <div>
         <Paragraph fontSize="1.65rem" margin="1.65rem 0">
           Have any Project in Mind?

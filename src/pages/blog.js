@@ -29,7 +29,7 @@ const BlogPage = () => {
             "Tutorials",
           ]}
         />
-        <Section>
+        <Section isInternalPage={true}>
           <Title>My Blog</Title>
           <Paragraph margin="1.35rem 0" fontSize="1.5rem">
             This is my personal blog where I share articles, tutorials and

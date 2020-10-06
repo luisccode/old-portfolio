@@ -24,10 +24,10 @@ const ProjectContainer = styled.div`
     margin: 4rem 0;
   }
 `;
-const Portfolio = ({ getAllProjects = false, hide = false }) => {
+const Portfolio = ({ getAllProjects, isInternalPage }) => {
   const nodes = usePortfolio(getAllProjects);
   return (
-    <Section id="portfolio" hideSeparator={hide}>
+    <Section id="portfolio" isInternalPage={isInternalPage}>
       <Separator />
       <Title tag="h3">My Portfolio</Title>
       <Paragraph margin="1.5rem 0">
@@ -39,7 +39,7 @@ const Portfolio = ({ getAllProjects = false, hide = false }) => {
           <Project data={project} key={project.name} />
         ))}
       </ProjectContainer>
-      {!hide && (
+      {!isInternalPage && (
         <Button margin="0 auto" tag={Link} to="/portfolio">
           View All
         </Button>

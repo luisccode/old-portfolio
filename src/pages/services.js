@@ -10,7 +10,7 @@ const ServicesPage = () => {
     <ThemeProvider theme={theme}>
       <Layout>
         <SEO title="My services" description="Luisccode Services" />
-        <Services getAllServices={true} hide={true} />
+        <Services getAllServices={true} isInternalPage={true} />
       </Layout>
     </ThemeProvider>
   );

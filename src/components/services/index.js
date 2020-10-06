@@ -15,10 +15,10 @@ const ServicesContainer = styled.div`
   margin-top: 4rem;
 `;
 
-const Services = ({ getAllServices = false, hide = false }) => {
+const Services = ({ getAllServices, isInternalPage }) => {
   const data = useServices(getAllServices);
   return (
-    <Section id="services" hideSeparator={hide}>
+    <Section id="services" isInternalPage={isInternalPage}>
       <Separator />
       <Title tag="h2">My Services</Title>
       <Paragraph margin="1.35rem 0">{data.sectionData.content}</Paragraph>
@@ -27,7 +27,7 @@ const Services = ({ getAllServices = false, hide = false }) => {
           <Service key={serviceData.name} data={serviceData} />
         ))}
       </ServicesContainer>
-      {!hide && (
+      {!isInternalPage && (
         <Button margin="3rem auto" tag={Link} to="/services">
           View All
         </Button>

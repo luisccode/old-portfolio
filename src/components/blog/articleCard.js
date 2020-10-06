@@ -57,7 +57,7 @@ const ArticleCard = ({ data: { publishedAt, title, slug, image } }) => {
             margin="0 1rem 0 0"
             display="inline-block"
           >
-            Learn More
+            Read More
           </Paragraph>
           <Arrow color="#fff" display="inline-block" hideOnSmall={false} />
         </LinkComponent>

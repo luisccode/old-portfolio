@@ -12,7 +12,9 @@ const FooterComponent = styled.footer`
 const Footer = () => {
   const { pathname } = useLocation();
   return (
-    <FooterComponent defaultMargin={pathname === "/"}>
+    <FooterComponent
+      defaultMargin={pathname === "/" || pathname.startsWith("/contact")}
+    >
       <Paragraph margin="1.35rem 0">
         Copyright ©2020 Luis Cortes. All Rights Reserved.
       </Paragraph>
