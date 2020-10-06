@@ -16,6 +16,7 @@ import theme from "../../theme";
 import { ThemeProvider } from "styled-components";
 import { MDXProvider } from "@mdx-js/react";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
+import { DiscussionEmbed } from "disqus-react";
 
 const components = {
   h1: (props) => <Title {...props} />,
@@ -39,6 +40,7 @@ const components = {
 const Article = ({ data }) => {
   const {
     title,
+    slug,
     seo: { metaTitle, metaDescription, keywords },
     childStrapiArticleContent: {
       childMdx: { body },
@@ -46,6 +48,14 @@ const Article = ({ data }) => {
     publishedAt,
     image,
   } = data.strapiArticles;
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME,
+    config: {
+      identifier: slug,
+      title,
+      url: `https://luisccode.com/blog/${slug}`,
+    },
+  };
   return (
     <ThemeProvider theme={theme}>
       <Layout>
@@ -81,6 +91,9 @@ const Article = ({ data }) => {
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </ContainerComponent>
+        <ContainerComponent style={{ marginTop: "4rem" }} tag="section">
+          <DiscussionEmbed {...disqusConfig} />
+        </ContainerComponent>
       </Layout>
     </ThemeProvider>
   );
@@ -96,6 +109,7 @@ export const query = graphql`
         keywords
       }
       title
+      slug
       childStrapiArticleContent {
         childMdx {
           body
