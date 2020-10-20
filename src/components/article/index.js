@@ -21,8 +21,22 @@ import { DiscussionEmbed } from "disqus-react";
 const components = {
   h1: (props) => <Title {...props} />,
   h2: (props) => <Title {...props} margin="1rem 0" tag="h2" />,
-  h3: (props) => <Title {...props} margin="1rem 0" tag="h3" />,
-  h4: (props) => <Title {...props} margin="1rem 0" tag="h4" />,
+  h3: (props) => (
+    <Title
+      {...props}
+      margin="1rem 0"
+      tag="h3"
+      fontSize={{ small: "2rem", medium: "2.4rem", large: "2.8rem" }}
+    />
+  ),
+  h4: (props) => (
+    <Title
+      {...props}
+      margin="1rem 0"
+      tag="h4"
+      fontSize={{ small: "1.8rem", medium: "2.2rem", large: "2.6rem" }}
+    />
+  ),
   img: (props) => <ImagenComponent {...props} />,
   p: (props) => (
     <Paragraph
@@ -48,6 +62,7 @@ const Article = ({ data }) => {
     publishedAt,
     image,
   } = data.strapiArticles;
+
   const disqusConfig = {
     shortname: process.env.GATSBY_DISQUS_NAME,
     config: {
