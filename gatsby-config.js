@@ -63,6 +63,13 @@ module.exports = {
         icon: `src/images/male-technologist.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#ff4900`,
+        showSpinner: false,
+      },
+    },
     `gatsby-plugin-offline`,
   ],
 };
