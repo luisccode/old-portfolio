@@ -17,7 +17,7 @@ const ContainerComponent = styled(Container)`
 `;
 const Logo = styled(Link)`
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   line-height: 1;
   @media (min-width: ${(props) => props.theme.size.mobile}) {
@@ -40,7 +40,7 @@ const Header = () => {
   return (
     <ContainerComponent tag="header">
       <Logo to="/">
-        Lu<span>c</span>ode
+        L<span>c</span>ode
       </Logo>
       <BurgerMenu open={open} setOpen={setOpen} />
       <Navigation open={open} setOpen={setOpen} />
