@@ -14,7 +14,7 @@ const ProjectContent = styled.div`
   opacity: 0.95;
   text-align: center;
   transition: all 0.5s ease-out;
-  transform: translatey(-101%);
+  transform: translatey(101%);
   ${mixins.flexCenter}
   &>div {
     margin: 0 1rem;

@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import mixins from "../../mixins"
+import React from "react";
+import styled from "styled-components";
+import mixins from "../../mixins";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -10,13 +10,13 @@ const ModalContainer = styled.div`
   padding: 2rem 4rem;
   background-color: #1e1b1b;
   z-index: 4;
-`
+`;
 
-const Modal = ({ text }) => {
+const Modal = (props) => {
   return (
     <ModalContainer>
-      <span>{text}</span>
+      <span>{props.children}</span>
     </ModalContainer>
-  )
-}
-export default Modal
+  );
+};
+export default Modal;

@@ -12,6 +12,7 @@ const useServices = (getAllServices) => {
         nodes {
           name
           featured
+          description
           icon {
             publicURL
           }
@@ -23,9 +24,9 @@ const useServices = (getAllServices) => {
     allStrapiSections: { nodes },
     allStrapiServices,
   } = data;
-  const services = allStrapiServices.nodes.filter(
-    (service) => service.featured === true
-  );
+  const services = getAllServices
+    ? allStrapiServices.nodes
+    : allStrapiServices.nodes.filter((service) => service.featured === true);
   return {
     sectionData: nodes[0],
     services: services,

@@ -1,14 +1,14 @@
-import React from "react"
-import { Paragraph } from "../typography"
+import React from "react";
+import { Paragraph } from "../typography";
 import {
   FacebookIcon,
   InstagramIcon,
   TwitterIcon,
   GithubIcon,
   LinkedinIcon,
-} from "./icons"
-import mixins from "../../mixins"
-import styled from "styled-components"
+} from "./icons";
+import mixins from "../../mixins";
+import styled from "styled-components";
 
 const SocialNetworksContainer = styled.div`
   position: absolute;
@@ -21,14 +21,23 @@ const SocialNetworksContainer = styled.div`
   a:not(:last-of-type) {
     margin-right: 2rem;
   }
-  @media (min-width: ${props => props.theme.size.tablet}) {
+  @media (min-width: ${(props) => props.theme.size.tablet}) {
+    justify-content: flex-end;
+    a:last-of-type {
+      margin-right: 10%;
+    }
     width: calc(40% - 2.5rem);
   }
-`
+  @media (min-width: ${(props) => props.theme.size.laptopS}) {
+    a:last-of-type {
+      margin-right: 25%;
+    }
+  }
+`;
 const SocialNetworks = () => {
   return (
     <div>
-      <Paragraph fontSize="1.87rem" textAlign="left" margin="1.87rem 0 1rem 0">
+      <Paragraph fontSize="1.87rem" textAlign="left" margin="3rem 0 1rem 0">
         Find Me on
       </Paragraph>
       <SocialNetworksContainer>
@@ -65,6 +74,6 @@ const SocialNetworks = () => {
         </a>
       </SocialNetworksContainer>
     </div>
-  )
-}
-export default SocialNetworks
+  );
+};
+export default SocialNetworks;

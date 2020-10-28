@@ -1,13 +1,13 @@
-import React from "react"
-import { Paragraph } from "../typography"
-import styled from "styled-components"
-import mixins from "../../mixins"
+import React from "react";
+import { Paragraph } from "../typography";
+import styled from "styled-components";
+import mixins from "../../mixins";
 
 const InfoContainer = styled.a`
   margin-top: 4rem;
   display: flex;
   align-items: flex-end;
-`
+`;
 const IconContainer = styled.div`
   margin-right: 1rem;
   border: 1px solid #333;
@@ -15,14 +15,15 @@ const IconContainer = styled.div`
   width: 45px;
   height: 45px;
   ${mixins.flexCenter}
-`
+`;
 const Text = styled.div`
   display: inline-block;
   max-width: 60%;
-`
+  font-style: normal;
+`;
 const Info = ({ data: { name, value, url }, Icon }) => {
   return (
-    <InfoContainer href={url}>
+    <InfoContainer href={url} target="_blank">
       <IconContainer>
         <Icon />
       </IconContainer>
@@ -40,6 +41,6 @@ const Info = ({ data: { name, value, url }, Icon }) => {
         </Paragraph>
       </Text>
     </InfoContainer>
-  )
-}
-export default Info
+  );
+};
+export default Info;

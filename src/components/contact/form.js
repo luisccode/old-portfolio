@@ -74,7 +74,7 @@ const Form = () => {
         classNames="fade"
         unmountOnExit
       >
-        <Modal text={"Message submitted successfully"} />
+        <Modal>Message submitted successfully</Modal>
       </CSSTransition>
       <FieldsetComponent>
         <Title tag="legend" margin=".5rem 0 2rem 0">
